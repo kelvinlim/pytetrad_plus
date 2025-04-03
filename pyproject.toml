@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pytetrad_plus"
+version = "0.1.1"
+authors = [
+  { name = "Kelvin O. Lim", email = "lim.kelvino@gmail.com" },
+]
+description = "A package of tools for working with py-tetrad"
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "jpype",
+    "pytetrad",
+    "PyYAML",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/kelvinlim/pytetrad_plus"
+"Bug Tracker" = "https://github.com/kelvinlim/pytetrad_plus/issues"
