@@ -443,13 +443,13 @@ class PyTetradPlus:
         
         return result
 
-    def test_boston(self, test_file = "boston_data.csv"):
+    def test_boston(self, dir= '.', test_file = "boston_data.csv"):
         """
         test running a search
         """
 
        # read in the data file into a pandas df
-        df = self.load_dataframe(test_file)
+        df = self.load_dataframe(os.path.join(dir,test_file))
         
         # search = ts.TetradSearch(df)
         search = self.search_init(df)
@@ -461,8 +461,8 @@ class PyTetradPlus:
         res =search.use_sem_bic(penalty_discount=1)
 
         # read in the prior file for the boston data
-        prior_file = "pytetrad_plus/boston_prior.txt"
-        prior_lines = self.read_prior_file(prior_file)
+        prior_file ="boston_prior.txt"
+        prior_lines = self.read_prior_file(os.path.join(dir,prior_file))
         # get the temporal tiers from the prior file
         knowledge = self.extract_knowledge(prior_lines)
 
@@ -749,7 +749,7 @@ if __name__ == "__main__":
             json.dump(results4, f, indent=4)
         pass
     elif args.cmd == 'boston':
-        results5 = obj.test_boston(test_file='pytetrad_plus/boston_data.csv')
+        results5 = obj.test_boston(dir="pytetrad_plus", test_file="boston_data.csv")
         # save results into a json file
         with open('results5.json', 'w') as f:
             json.dump(results5, f, indent=4)

@@ -9,7 +9,7 @@
             "name": "pytetradplus.py test4",
             "type": "debugpy",
             "request": "launch",
-            "program": "pytetrad_plus/pytetradplus.py",
+            "program": "pytetrad_plus/pytetrad_plus.py",
             "console": "integratedTerminal",
             "args": [
                 "--cmd",
