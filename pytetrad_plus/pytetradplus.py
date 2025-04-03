@@ -20,11 +20,12 @@ import pytetrad.tools.translate as tr
 import semopy
 
 
-__version_info__ = ('0', '1', '1')
+__version_info__ = ('0', '1', '2')
 __version__ = '.'.join(__version_info__)
 
 version_history = \
 """
+0.1.2 - reworked data file paths
 0.1.1 - refactored to generalize operations with run_model_search
 0.1.0 - initial version  
 """
@@ -442,7 +443,7 @@ class PyTetradPlus:
         
         return result
 
-    def test_boston(self, test_file = "testfiles/boston_data.csv"):
+    def test_boston(self, test_file = "boston_data.csv"):
         """
         test running a search
         """
@@ -460,7 +461,7 @@ class PyTetradPlus:
         res =search.use_sem_bic(penalty_discount=1)
 
         # read in the prior file for the boston data
-        prior_file = "src/testfiles/boston_prior.txt"
+        prior_file = "pytetrad_plus/boston_prior.txt"
         prior_lines = self.read_prior_file(prior_file)
         # get the temporal tiers from the prior file
         knowledge = self.extract_knowledge(prior_lines)
@@ -748,7 +749,7 @@ if __name__ == "__main__":
             json.dump(results4, f, indent=4)
         pass
     elif args.cmd == 'boston':
-        results5 = obj.test_boston(test_file='src/testfiles/boston_data.csv')
+        results5 = obj.test_boston(test_file='pytetrad_plus/boston_data.csv')
         # save results into a json file
         with open('results5.json', 'w') as f:
             json.dump(results5, f, indent=4)
