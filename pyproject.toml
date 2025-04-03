@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pytetrad_plus"
-version = "0.1.1"
+version = "0.1.3"
 authors = [
   { name = "Kelvin O. Lim", email = "lim.kelvino@gmail.com" },
 ]
@@ -17,8 +17,9 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dependencies = [
-    "jpype",
-    "pytetrad",
+    # can't have direct dependency
+    #"py-tetrad @ git+https://github.com/cmu-phil/py-tetrad",
+    "jPype1",
     "PyYAML",
 ]
 
