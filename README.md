@@ -7,3 +7,9 @@ Required packages
 2. pytetrad
 
 
+## package instructions
+
+```
+python -m build
+twine upload dist/*
+```

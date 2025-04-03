@@ -1,0 +1,24 @@
+# MANIFEST.in
+
+# Include all files within the 'pytetrad_plus' directory
+# This assumes boston*.csv and *.txt are inside the pytetrad_plus package folder
+# graft pytetrad_plus
+
+# Alternatively, be more specific if files are inside the package folder:
+include pytetrad_plus/*.csv
+include pytetrad_plus/*.txt
+
+# If the data files were NOT inside the 'pytetrad_plus' folder, but
+# in the project root alongside pyproject.toml, you would use:
+# include boston_data.csv
+# include boston_prior.txt
+# include sub_1019.csv
+
+# Exclude compiled python files and caches
+global-exclude *.py[co]
+global-exclude __pycache__
+
+# Exclude the build metadata directory itself if it gets picked up by graft
+prune *.egg-info
+prune build
+prune dist
