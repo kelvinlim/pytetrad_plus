@@ -15,6 +15,16 @@
                 "--cmd",
                 "boston",  // This is the command you want to run, e.g., test4
             ]
-        }
+        },
+        {
+            "name": "mypytetrad.py init",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "pytetrad_plus/mypytetrad.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "args": [
+            ]
+        }        
     ]
 }
