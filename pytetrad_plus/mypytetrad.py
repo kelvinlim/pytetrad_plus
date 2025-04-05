@@ -247,15 +247,18 @@ class MyTetradSearch(TetradSearchBaseClass):
                  'estimatesDict': estimatesDict,
                  'stats': stats})
         
-    def run_model_search(self, df, model='gfci', 
-                         knowledge=None, 
-                         score=None,
-                         test=None):
+    # def run_model_search(self, df, model='gfci', 
+    #                      knowledge=None, 
+    #                      score=None,
+    #                      test=None):
+    def run_model_search(self, df, **kwargs):
         """
         Run a search
         
         Args:
         df - pandas dataframe
+        
+        kwargs:
         model - string with the model to use, default gfci
         knowledge - dictionary with the knowledge
         score - dictionary with the arguments for the score
@@ -267,6 +270,11 @@ class MyTetradSearch(TetradSearchBaseClass):
         result - dictionary with the results
         """
     
+        model = kwargs.get('model', 'gfci')
+        knowledge = kwargs.get('knowledge', None)
+        score = kwargs.get('score', None)
+        test = kwargs.get('test', None)
+        depth = kwargs.get('depth', -1)
         
         # check if score is not None
         if score is not None:  
@@ -332,7 +340,7 @@ if __name__ == "__main__":
     searchResult = ts.run_model_search(df, model='gfci', 
                                             knowledge=knowledge, 
                                             score={'sem_bic': {'penalty_discount': 1.0}},
-                                            test={'fisher_z': {'alpha': .01}})
+                                            test={'fisher_z': {'alpha': .05}})
     
     
     lavaan_model = ts.edges_to_lavaan(searchResult['setEdges'])
