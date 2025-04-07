@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pytetrad_plus"
-version = "0.2.0"
+version = "0.2.0.1"
 authors = [
   { name = "Kelvin O. Lim", email = "lim.kelvino@gmail.com" },
 ]
@@ -21,6 +21,7 @@ dependencies = [
     #"py-tetrad @ git+https://github.com/cmu-phil/py-tetrad",
     "jPype1",
     "pandas",
+    "python-dotenv",
     "PyYAML",
     "seaborn",
     "semopy",
