@@ -18,7 +18,7 @@ pip install -r requirements.txt
 ```
 
 
-## package instructions
+## package publishing instructions
 
 ```
 python -m build
