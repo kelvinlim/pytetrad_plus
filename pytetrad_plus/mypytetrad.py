@@ -288,7 +288,10 @@ class MyTetradSearch(TetradSearchBaseClass):
                 alpha = test['fisher_z'].get('alpha',.01)
                 self.use_fisher_z(alpha=alpha)
             
-
+        # check if depth is not None
+        if depth != -1:
+            self.set_depth(depth)
+            
         if knowledge is not None:
             self.load_knowledge(knowledge)
         
