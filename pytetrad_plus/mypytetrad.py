@@ -2,12 +2,26 @@
 
 import json
 import os
+from pathlib import Path
 import socket
+
+from dotenv import load_dotenv
 
 # set the PATH if needed
 hostname = socket.gethostname()
-
-if 'c30' in hostname:
+home_directory = Path.home()
+# check if .javaenv.txt file exists
+javaenv_path = os.path.join(home_directory, '.javarc')
+if os.path.exists(javaenv_path):
+    # load the file
+    load_dotenv(dotenv_path=javaenv_path)
+    java_home = os.environ.get("JAVA_HOME")
+    java_path = f"{java_home}/bin"
+    current_path = os.environ.get('PATH')
+    # add this to PATH
+    os.environ['PATH'] = f"{current_path}{os.pathsep}{java_path}"
+    pass
+elif 'c30' in hostname:
     java_home = "R:/DVBIC/jdk21.0.4_7"
     # init JAVA_HOME
     os.environ['JAVA_HOME'] = java_home
@@ -27,7 +41,7 @@ import semopy
 # Correctly import the CLASS 'TetradSearch' from WITHIN the MODULE 'TetradSearch'
 try:
     from pytetrad.tools.TetradSearch import TetradSearch as TetradSearchBaseClass
-    print(f"DEBUG: Successfully imported TetradSearchBaseClass, type: {type(TetradSearchBaseClass)}")
+    #print(f"DEBUG: Successfully imported TetradSearchBaseClass, type: {type(TetradSearchBaseClass)}")
     # Optional check to be absolutely sure it's a class now
     if not isinstance(TetradSearchBaseClass, type):
         print("ERROR: Imported object is not actually a class type!")
@@ -44,7 +58,7 @@ except ImportError:
 except Exception as e:
     print(f"FATAL: An unexpected error occurred during import: {e}")
     exit()
-print(f"DEBUG: Type of imported TetradSearch: {type(TetradSearchBaseClass)}")
+#print(f"DEBUG: Type of imported TetradSearch: {type(TetradSearchBaseClass)}")
 # Add this to see its attributes, might help identify if it's a class or module
 # print(f"Attributes of TetradSearch: {dir(TetradSearch)}")
 

@@ -17,6 +17,13 @@ source .venv/bin/activate # linux
 pip install -r requirements.txt
 ```
 
+## running code
+
+If JAVA_HOME is not initialized (VA Azure Virtual Desktop), place a file .javarc in your home directory.
+It should contain the path for JAVA_HOME, where Java JDK 21+ is installed:
+```
+JAVA_HOME=R:/path/jdk21
+```
 
 ## package publishing instructions
 
