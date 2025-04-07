@@ -20,11 +20,12 @@ import pytetrad.tools.translate as tr
 import semopy
 
 
-__version_info__ = ('0', '1', '2')
+__version_info__ = ('0', '2', '0')
 __version__ = '.'.join(__version_info__)
 
 version_history = \
 """
+0.2.0 - add reading of .javarc for JAVA_HOME
 0.1.2 - reworked data file paths
 0.1.1 - refactored to generalize operations with run_model_search
 0.1.0 - initial version  
