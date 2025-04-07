@@ -1,10 +1,28 @@
 #from pytetrad.tools import TetradSearch
 
+import json
 import os
+import socket
+
+# set the PATH if needed
+hostname = socket.gethostname()
+
+if 'c30' in hostname:
+    java_home = "R:/DVBIC/jdk21.0.4_7"
+    # init JAVA_HOME
+    os.environ['JAVA_HOME'] = java_home
+    java_path = f"{java_home}/bin"
+    current_path = os.environ.get('PATH')
+    # add this to PATH
+    os.environ['PATH'] = f"{current_path}{os.pathsep}{java_path}"
+    pass
+
 import re
 import pytetrad.tools.translate as tr
 import pandas as pd
 import semopy
+
+
 
 # Correctly import the CLASS 'TetradSearch' from WITHIN the MODULE 'TetradSearch'
 try:
@@ -29,6 +47,7 @@ except Exception as e:
 print(f"DEBUG: Type of imported TetradSearch: {type(TetradSearchBaseClass)}")
 # Add this to see its attributes, might help identify if it's a class or module
 # print(f"Attributes of TetradSearch: {dir(TetradSearch)}")
+
 
 class MyTetradSearch(TetradSearchBaseClass):
     def __init__(self):
@@ -317,6 +336,8 @@ class MyTetradSearch(TetradSearchBaseClass):
 if __name__ == "__main__":
     # Example usage of MyTetradSearch
     
+
+
     # Create an instance of MyTetradSearch
     ts = MyTetradSearch()
 
@@ -365,4 +386,7 @@ if __name__ == "__main__":
                 'estimatesSEM': sem_results['estimatesDict']
                 } 
  
+    # write the result to a json file
+    with open('pytetrad_plus/boston_result.json','w') as f:
+        json.dump(result, f, indent=4)
     pass  # assign the method for testing
