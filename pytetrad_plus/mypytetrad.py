@@ -1,3 +1,5 @@
+#! /usr/bin/env python3
+
 #from pytetrad.tools import TetradSearch
 
 import json

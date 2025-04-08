@@ -19,11 +19,18 @@ pip install -r requirements.txt
 
 ## running code
 
-If JAVA_HOME is not initialized (VA Azure Virtual Desktop), place a file .javarc in your home directory.
+If JAVA_HOME is not initialized (VA Azure Virtual Desktop), place a file .javarc in your home directory. This is generally not needed
+for linux or macos.
 It should contain the path for JAVA_HOME, where Java JDK 21+ is installed:
 ```
 JAVA_HOME=R:/path/jdk21
 ```
+To run the test program:
+```
+./pytetrad_plus/mypytetrad.py
+```
+
+This should do the search and place the results in ./pytetrad_plus/boston_result.json.
 
 ## package publishing instructions
 
