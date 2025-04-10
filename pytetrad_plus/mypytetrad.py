@@ -7,6 +7,7 @@ import os
 from pathlib import Path
 import socket
 
+
 from dotenv import load_dotenv
 
 # set the PATH if needed
@@ -22,7 +23,13 @@ if os.path.exists(javaenv_path):
     current_path = os.environ.get('PATH')
     # add this to PATH
     os.environ['PATH'] = f"{current_path}{os.pathsep}{java_path}"
+
+    # add to path
+    graphviz_bin = os.environ.get("GRAPHVIZ_BIN")
+    os.environ['PATH'] = f"{current_path}{os.pathsep}{graphviz_bin}"
+
     pass
+
 elif 'c30' in hostname:
     java_home = "R:/DVBIC/jdk21.0.4_7"
     # init JAVA_HOME
@@ -33,6 +40,7 @@ elif 'c30' in hostname:
     os.environ['PATH'] = f"{current_path}{os.pathsep}{java_path}"
     pass
 
+import graphviz
 import re
 import pytetrad.tools.translate as tr
 import pandas as pd
@@ -280,7 +288,8 @@ class MyTetradSearch(TetradSearchBaseClass):
         return ({'opt_res': opt_res,
                  'estimates': estimates, 
                  'estimatesDict': estimatesDict,
-                 'stats': stats})
+                 'stats': stats,
+                 'model': model})
         
     # def run_model_search(self, df, model='gfci', 
     #                      knowledge=None, 
@@ -388,6 +397,10 @@ if __name__ == "__main__":
     # run semopy
     sem_results = ts.run_semopy(lavaan_model, df)
     
+    # plot into png
+    png_path = 'pytetrad_plus/boston_data.png'
+    g = semopy.semplot(sem_results['model'], png_path,  plot_covs = True)
+
     # get the estmates
     estimates_sem = sem_results['estimates']
     
