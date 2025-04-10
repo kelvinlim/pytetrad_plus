@@ -2,12 +2,16 @@
 """
 try_mypytetrad.py
 ======================
-This script is used to test the mypytetrad package. It can be used to quickly check if the package is installed correctly and can be run directly.
+This script is used to test the mypytetrad package. 
+It can be used to  check if the package is 
+installed correctly and can be run directly.
+
+
 """
 import sys
 
 from pytetrad_plus import MyTetradSearch
-# from pytetrad_plus import MyTetradSearch
+
 import pandas as pd
 
 if __name__ == "__main__":
