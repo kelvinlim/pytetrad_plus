@@ -47,11 +47,12 @@ import pytetrad.tools.translate as tr
 import pandas as pd
 import semopy
 
-__version_info__ = ('0', '2', '1')
+__version_info__ = ('0', '2', '2')
 __version__ = '.'.join(__version_info__)
 
 version_history = \
 """
+0.2.2 - generate semopy plot
 0.2.1 - add subsample_df and reading in csv
 0.2.0 - add reading of .javarc for JAVA_HOME
 0.1.2 - reworked data file paths
