@@ -6,9 +6,10 @@ import json
 import os
 from pathlib import Path
 import socket
-
+from typing import Optional
 
 from dotenv import load_dotenv
+from sklearn.preprocessing import StandardScaler
 
 # set the PATH if needed
 hostname = socket.gethostname()
@@ -46,7 +47,17 @@ import pytetrad.tools.translate as tr
 import pandas as pd
 import semopy
 
+__version_info__ = ('0', '2', '1')
+__version__ = '.'.join(__version_info__)
 
+version_history = \
+"""
+0.2.1 - add subsample_df and reading in csv
+0.2.0 - add reading of .javarc for JAVA_HOME
+0.1.2 - reworked data file paths
+0.1.1 - refactored to generalize operations with run_model_search
+0.1.0 - initial version  
+"""
 
 # Correctly import the CLASS 'TetradSearch' from WITHIN the MODULE 'TetradSearch'
 try:
@@ -85,13 +96,190 @@ class MyTetradSearch(TetradSearchBaseClass):
         # super().__init__(*args, **kwargs)
         super().__init__(dummy_df)
 
+    def read_csv(self, file_path: str) -> pd.DataFrame:
+        """Read a CSV file and return a pandas DataFrame.
+        Args:
+            file_path (str): Path to the CSV file.
+
+        Returns:
+            pd.DataFrame: pandas DataFrame
+        """
+        self.full_df = pd.read_csv(file_path)
+        return self.full_df
+
+    def add_lag_columns(self, df: pd.DataFrame, lag_stub='_') -> pd.DataFrame:
+        """
+        Lag the dataframe by shifting the columns by one row
+
+        Args:
+            df (pd.DataFrame): the dataframe to lag
+            lag_stub (str): the string to append to the column names for the lagged variables
+
+        Returns:
+            pd.DataFrame: the lagged dataframe
+        """
+        
+        # create a copy of the dataframe
+        df_lag = df.copy()
+        
+        # create additional columns for the lagged variables, naming them  lagdrinks, lagsad, etc.
+        cols_to_lag = df.columns.tolist()
+        # shift by one row
+        for col in cols_to_lag:
+            df_lag[f'{col}{lag_stub}'] = df[col].shift(1)
+        
+        # drop the first row
+        df_lag = df_lag.dropna()
+        
+        # reset index
+        df_lag = df_lag.reset_index(drop=True)
+        
+        return df_lag
     
-    def load_df(self,df):
+    def load_df_into_ts(self,df):
         """
         Loads a pandas DataFrame into the TetradSearch object.
         """
         self.data = tr.pandas_data_to_tetrad(df)
         return self.data
+    
+    def subsample_df(self, df: Optional[pd.DataFrame] = None,    
+                    fraction: float = 0.9,
+                    random_state: Optional[int] = None) -> pd.DataFrame:
+        """
+        Randomly subsample the DataFrame to a fraction of rows
+        Args:
+            df - pandas DataFrame
+            fraction - proportion of rows to keep, default 0.9
+            random_state - random state for reproducibility
+        Returns:
+            df - pandas DataFrame
+        """
+        if df is None:
+            if hasattr(self, 'full_df') and self.full_df is not None:
+                df = self.full_df
+            else:
+                raise ValueError("DataFrame must be provided.")
+        if fraction <= 0 or fraction > 1:
+            raise ValueError(f"fraction must be between 0 and 1")
+        
+        # Use the DataFrame's built-in sample method with the specified fraction
+        # The `random_state` parameter ensures reproducibility if an integer is provided
+        scrambled_df = df.sample(frac=fraction, random_state=random_state)
+
+        # Step 2: Sort the sampled DataFrame by its original index
+        # This restores the original relative order of the kept rows
+        self.subsampled_df = scrambled_df.sort_index()
+        
+        return self.subsampled_df
+
+    def standardize_df_cols(self, df, diag=False):
+        """
+        standardize the columns in the dataframe
+        https://machinelearningmastery.com/normalize-standardize-machine-learning-data-weka/
+        
+        * get the column names for the dataframe
+        * convert the dataframe into  a numeric array
+        * scale the data
+        * convert array back to a df
+        * add back the column names
+        * set to the previous df
+        """
+        
+        # describe original data - first two columns
+        if diag:
+            print(df.iloc[:,0:2].describe())
+        # get column names
+        colnames = df.columns
+        # convert dataframe to array
+        data = df.values
+        # standardize the data
+        std_data = StandardScaler().fit_transform(data)
+        # convert array back to df, use original colnames
+        newdf = pd.DataFrame(std_data, columns = colnames)
+        # describe new data - first two columns
+        if diag:
+            print(newdf.iloc[:,0:2].describe())
+        
+        return newdf
+    
+    def run_stability_search(self, full_df: pd.DataFrame,
+                            model: str = 'gfci',
+                            knowledge: Optional[dict] = None,
+                            score = {'sem_bic': {'penalty_discount': 1.0}},
+                            test ={'fisher_z': {'alpha': .05}},
+                            runs: int = 100,
+                            min_fraction: float= 0.75,
+                            subsample_fraction: float = 0.9,
+                            random_state: Optional[int] = None,
+                            lag_flag = True) -> list:
+        """
+        Run a stability search on the DataFrame using the specified model.
+        
+        Edges are tabluated for each run using a set.
+        Edges that are present for a minimum of min_fraction of runs will be retained
+        and returned.
+        The edges are returned as a list of strings.
+        
+        Args:
+            df: pd.DataFrame - the DataFrame to perform the stability search on
+            model: str - the model to use for the search
+            knowledge: Optional[dict] - additional knowledge to inform the search
+            score: dict - scoring parameters
+            test: dict - testing parameters
+            runs: int - number of runs to perform
+            min_fraction: float - minimum fraction of runs an edge must appear in to be retained
+            subsample_fraction: float - fraction of data to subsample for each run
+            random_state: Optional[int] - random state for reproducibility
+            lag_flag: - if True, add lagged columns to the DataFrame
+        Returns:
+            list - list with the results
+        """
+
+        # dictionary where key is the edge and value is the number of times it was found
+        edge_counts = {}
+        
+        # loop over the number of runs
+        for i in range(runs):
+            # subsample the DataFrame
+            df = self.subsample_df(full_df, fraction=subsample_fraction, random_state=random_state)
+            
+            # check if lag_flag is True
+            if lag_flag:
+                # add lagged columns
+                df = self.add_lag_columns(df, lag_stub='_lag')
+                
+            # standardize the data
+            df = self.standardize_df_cols(df)
+                
+            # run the search
+            searchResult = self.run_model_search(df, model=model, 
+                                                knowledge=knowledge, 
+                                                score=score,
+                                                test=test)
+            # get the edges
+            edges = searchResult['setEdges']
+            # loop over the edges
+            for edge in edges:
+                edge_counts[edge] = edge_counts.get(edge, 0) + 1
+
+            pass
+        # check similarity of edges, sort alphabetically
+        # get all the keys and then sort them
+        sorted_edge_keys = sorted(edge_counts.keys())
+        
+        sorted_edge_counts = {}
+        # loop over the sorted keys and store the fractional count 
+        for edge in sorted_edge_keys:
+            sorted_edge_counts[edge] = edge_counts[edge]/runs
+            
+        # loop over the edges and keep only those that are present in at least min_fraction of runs
+        min_count = int(runs * min_fraction)
+        stable_edges = [edge for edge, count in edge_counts.items() if count >= min_count]
+        # return the edges
+        return stable_edges, sorted_edge_counts
+    
+    
 
     def read_prior_file(self, prior_file) -> list:
         """
@@ -320,6 +508,9 @@ class MyTetradSearch(TetradSearchBaseClass):
         test = kwargs.get('test', None)
         depth = kwargs.get('depth', -1)
         
+        # load the data into the TetradSearch object
+        self.load_df_into_ts(df)
+        
         # check if score is not None
         if score is not None:  
             ## Use a SEM BIC score
@@ -374,7 +565,7 @@ if __name__ == "__main__":
         print(f"Failed to load the DataFrame from {df_file}. Please check the file.")
     else:
         # Load the DataFrame into the TetradSearch object
-        ts.load_df(df)
+        ts.load_df_into_ts(df)
         print("Data loaded successfully.")
 
     # read the prior file for testing
@@ -391,6 +582,8 @@ if __name__ == "__main__":
                                             score={'sem_bic': {'penalty_discount': 1.0}},
                                             test={'fisher_z': {'alpha': .05}})
     
+    
+  
     
     lavaan_model = ts.edges_to_lavaan(searchResult['setEdges'])
     
