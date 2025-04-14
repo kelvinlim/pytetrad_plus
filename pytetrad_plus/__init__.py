@@ -1,2 +1,2 @@
-from .pytetrad_plus import PyTetradPlus
+#from .pytetrad_plus import PyTetradPlus
 from .mypytetrad import MyTetradSearch
