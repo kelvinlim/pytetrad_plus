@@ -113,5 +113,39 @@ if __name__ == "__main__":
 
     print("Stability analysis results saved to boston_result_stability.json")
     
+    
+    # run permutation
+    # create 100 permutations
+    permuted_dfs = ts.create_permuted_dfs(df, n_permutations=100)
+    # run the search on each permutation
+    permuted_results = []
+    
+    # range of penalty_discount values
+    penalty_discount_values = [1.0,2,3,4,5,6,7,8,9,10]
+    # iterate over the penalty_discount values
+    for penalty_discount in penalty_discount_values:
+        # iterate over the permuted dataframes
+        for permuted_df in permuted_dfs:
+            
+            # add lag columns
+            permuted_df_lag = ts.add_lag_columns(permuted_df, lag_stub='_lag')
+            # standardize the data
+            permuted_df_lag_std = ts.standardize_df_cols(permuted_df_lag)
+            # run the search
+            searchResult = ts.run_model_search(permuted_df_lag_std, model='gfci', 
+                                                knowledge=knowledge, 
+                                                score={'sem_bic': {'penalty_discount': penalty_discount}},
+                                                test={'fisher_z': {'alpha': .05}})
+            # create dictionary for result to include penalty_discount
+            info = {
+                'penaltyDiscount': penalty_discount,
+                'numEdges': len(searchResult['setEdges']),
+                'edges': list(searchResult['setEdges'])
+            }
+            permuted_results.append(info)
         
+    # save the results to a json file
+    with open('pytetrad_plus/boston_permuted_results.json','w') as f:
+        json.dump(permuted_results, f, indent=4)
+    print("Permutation results saved to boston_permuted_results.json")
     pass

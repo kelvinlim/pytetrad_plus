@@ -6,13 +6,14 @@ import json
 import os
 from pathlib import Path
 import socket
-from typing import Optional
+from typing import Optional, List
 
 from dotenv import load_dotenv
+import numpy as np
 from sklearn.preprocessing import StandardScaler
 
 # set the PATH if needed
-hostname = socket.gethostname()
+hostname = socket.gethostname() 
 home_directory = Path.home()
 # check if .javaenv.txt file exists
 javaenv_path = os.path.join(home_directory, '.javarc')
@@ -47,11 +48,12 @@ import pytetrad.tools.translate as tr
 import pandas as pd
 import semopy
 
-__version_info__ = ('0', '2', '2')
+__version_info__ = ('0', '2', '3')
 __version__ = '.'.join(__version_info__)
 
 version_history = \
 """
+0.2.3 - add generate_permuted_dfs - permutes data in each column
 0.2.2 - generate semopy plot
 0.2.1 - add subsample_df and reading in csv
 0.2.0 - add reading of .javarc for JAVA_HOME
@@ -204,6 +206,60 @@ class MyTetradSearch(TetradSearchBaseClass):
         
         return newdf
     
+    def create_permuted_dfs(self, df: pd.DataFrame, n_permutations: int, seed: int = None) -> List[pd.DataFrame]:
+        """
+        Generates multiple DataFrames, each with elements permutated within columns independently.
+
+        Args:
+            df: The input pandas DataFrame.
+            n_permutations: The number of permutated DataFrames to generate.
+            seed: An optional integer seed for the random number generator
+                to ensure reproducibility of the sequence of permutations.
+                If None, the permutations will be different each time.
+
+        Returns:
+            A list containing n pandas DataFrames, each being a column-wise
+            permutation of the original DataFrame.
+        """
+        # Check if the input DataFrame is empty
+        if df.empty:
+            raise ValueError("Input DataFrame is empty. Please provide a valid DataFrame.")
+
+        # Check if n is a positive integer
+        if not isinstance(n_permutations, int) or n_permutations <= 0:
+            raise ValueError("The number of permutations (n) must be a positive integer.")
+
+        # If a seed is provided, set it for reproducibility
+        # This allows for consistent random permutations across different runs
+        # If no seed is provided, the permutations will be different each time
+        # Note: np.random.default_rng() is used to create a new random number generator instance
+        # This is a more modern approach compared to np.random.seed() and allows for better control
+        # over random number generation.
+        # The seed is used to initialize the random number generator
+        # This ensures that the same sequence of random numbers is generated each time
+        # the same seed is used.
+        # This is useful for debugging and testing purposes
+        # If no seed is provided, the permutations will be different each time
+        # the function is called.   
+        # Initialize the random number generator once
+        # If a seed is provided, the sequence of generated permutations will be reproducible
+        rng = np.random.default_rng(seed)
+
+        permutated_dfs = [] # List to store the resulting DataFrames
+
+        for _ in range(n_permutations): # Generate n permutations
+            # Create a fresh copy of the original DataFrame for each permutation
+            df_permuted = df.copy()
+
+            # Permutate each column independently using the same RNG state
+            for col in df_permuted.columns:
+                df_permuted[col] = rng.permutation(df_permuted[col].values)
+
+            # Add the newly permutated DataFrame to the list
+            permutated_dfs.append(df_permuted)
+
+        return permutated_dfs
+
     def run_stability_search(self, full_df: pd.DataFrame,
                             model: str = 'gfci',
                             knowledge: Optional[dict] = None,
