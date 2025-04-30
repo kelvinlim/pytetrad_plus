@@ -96,7 +96,7 @@ def add_sem_results_to_graph(obj, df, format: bool = True):
             obj.modify_existing_edge(source, target, color=color, strength=estimate, pvalue=pvalue)
             pass
 
-add_sem_results_to_graph(obj, sem_results['estimates'])
+ts.add_sem_results_to_graph(obj, sem_results['estimates'])
 obj.save_graph(plot_format='png', plot_name='extra_credit_sem',res=96)
 
 

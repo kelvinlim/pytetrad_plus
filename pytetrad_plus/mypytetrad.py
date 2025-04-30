@@ -606,6 +606,34 @@ class MyTetradSearch(TetradSearchBaseClass):
         
         return result
 
+    def add_sem_results_to_graph(self, obj, df, format: bool = True):
+        """
+        Add the semopy results to the graph object.
+        Args:
+            obj (DgraphFlex): The graph object to add the results to.
+            df (pd.DataFrame): The semopy results dataframe.
+            format (bool): Whether to format the estimates or not. Defaults to True.
+        
+        """
+        # iterate over the estimates id the df semopy output
+        # and add them to the graph object
+
+        # iterate over the estimates and add them to the graph
+        # object
+        
+        for index, row in df.iterrows():
+            if row['op'] == '~':
+                source = row['rval']
+                target = row['lval']
+                estimate = row['Estimate']
+                pvalue = row['p-value']
+                # modify the edge in the existing graph obj
+                # set the color based on the sign of estimate, green for positive, red for negative
+                color = 'green' if estimate > 0 else 'red'
+                
+                obj.modify_existing_edge(source, target, color=color, strength=estimate, pvalue=pvalue)
+                pass
+            
 if __name__ == "__main__":
     # Example usage of MyTetradSearch
     
