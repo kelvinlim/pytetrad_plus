@@ -12,6 +12,7 @@ import json
 import sys
 
 from pytetrad_plus import MyTetradSearch
+from dgraph_flex import DgraphFlex
 
 import pandas as pd
 
@@ -48,6 +49,18 @@ if __name__ == "__main__":
                                             test={'fisher_z': {'alpha': .05}})
     
     
+    # show the raw graph
+    obj = DgraphFlex()
+    # add edges to graph object
+    for edge in searchResult['setEdges']:
+        # split the edge into source, edge_type, and target
+        # and add it to the graph object
+        source,edge_type, target = edge.split(' ')
+        obj.add_edge(source,edge_type, target, color='black')
+
+    obj.save_graph(plot_format='png', plot_name='boston_graph_single',res=96)
+
+    # do sem
     lavaan_model = ts.edges_to_lavaan(searchResult['setEdges'])
     
     # run semopy
@@ -60,9 +73,13 @@ if __name__ == "__main__":
     # get the estmates
     estimates_sem = sem_results['estimates']
     
+    # add the semopy results to the graph object
+    ts.add_sem_results_to_graph(obj, sem_results['estimates'])
+
     # summary of the estimates
     estimates = ts.summarize_estimates(estimates_sem)
-    
+    obj.save_graph(plot_format='png', plot_name='boston_graph_single_sem')
+
     result = {  'setEdges': list(searchResult['setEdges']), 
                 'ESMean': estimates['mean_abs_estimates'],
                 'ESStd': estimates['std_abs_estimates'],
@@ -84,6 +101,17 @@ if __name__ == "__main__":
                                             min_fraction=0.75,
                                             subsample_fraction=0.9)
 
+    # show the raw graph
+    obj = DgraphFlex()
+    # add edges to graph object
+    for edge in stable_edges:
+        # split the edge into source, edge_type, and target
+        # and add it to the graph object
+        source,edge_type, target = edge.split(' ')
+        obj.add_edge(source,edge_type, target, color='black')
+
+    obj.save_graph(plot_format='png', plot_name='boston_graph_stability',res=96)
+
     lavaan_model = ts.edges_to_lavaan(stable_edges)
     
     # run semopy, using the lagged and standardized data
@@ -93,11 +121,17 @@ if __name__ == "__main__":
     png_path = 'pytetrad_plus/boston_data_stability.png'
     g = semopy.semplot(sem_results['model'], png_path,  plot_covs = True)
 
+
+    # add the semopy results to the graph object
+    ts.add_sem_results_to_graph(obj, sem_results['estimates'])
+
+    obj.save_graph(plot_format='png', plot_name='boston_graph_stability_sem')
+
     # get the estimates
     estimates_sem = sem_results['estimates']
-    
     # summary of the estimates
-    estimates = ts.summarize_estimates(estimates_sem)
+    estimates = ts.summarize_estimates(estimates_sem)    
+
     
     result = {  'setEdges': stable_edges, 
                 'ESMean': estimates['mean_abs_estimates'],
