@@ -25,6 +25,16 @@
             "justMyCode": false,
             "args": [
             ]
-        }        
+        },        
+        {
+            "name": "extra_credit",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "extra_credit.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "args": [
+            ]
+        } 
     ]
 }
