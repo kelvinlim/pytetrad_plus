@@ -49,11 +49,13 @@ import pandas as pd
 import semopy
 import tqdm
 
-__version_info__ = ('0', '2', '5')
+__version_info__ = ('0', '2', '7')
 __version__ = '.'.join(__version_info__)
 
 version_history = \
 """
+0.2.7 - add get_hyper_parameters to calculate the hyper parameters to achieve a target 
+        false positive rate for a specific dataset
 0.2.6 - set default verbose to False to stop the adjacentNodes messages
 0.2.5 - added progress bar to run_stability_search
 0.2.4 - added stability analysis with edge merging
@@ -768,6 +770,182 @@ class MyTetradSearch(TetradSearchBaseClass):
                 
                 obj.modify_existing_edge(source, target, color=color, strength=estimate, pvalue=pvalue)
                 pass
+
+    def get_hyper_parameters(self, df:pd.DataFrame, 
+                        model: str = 'gfci',
+                        target_fpr: float = 0.01,
+                        n_permutations: int = None,
+                        pd_values: List = [1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0],
+                        alpha_values: List = [.05,.01,.005,.001,.0005,.0001],
+                        knowledge: dict = {},
+                        lag_flag: int = 0, # lag the data if 1
+                        lag_stub: str = '_',
+                        verbose: bool = True
+                        ) -> dict:
+        """
+        
+        Determine the hyperparameters for a given model
+        using permutation analysis.
+        This is a brute force approach to hyperparameter
+        model search. Given either single or multiple pd_values 
+        or alpha_values, the variable with the single value will
+        be used as the fixed value and the other variable will
+        be varied over the range of values.
+        The function will then compute the false positive rate
+        (FPR) for each combination of pd_value and alpha_value, 
+        returning the best combination that is <= target_fpr.
+        
+        Arguments:
+        df : pd.DataFrame : the dataframe to use
+        model : str : the model to use, default 'gfci'
+        target_fpr : float : target false positive rate
+        n_permutations : int : number of permutations to run
+        pd_values : List : penalty discount values to use - default [1.0]
+        alpha_values : List : list of alpha values to use - default [.05,.01,.005,.001,.0005,.0001]
+        knowledge : dict : knowledge to use
+        lag_flag : int : if 1, add lagged columns to the dataframe
+        lag_stub : str : string to append to the column names for the lagged variables
+        
+        Returns:
+        dict : dictionary of results
+        
+        """
+        
+        # check if in jupyter to select the progress bar code
+        if self.in_jupyter():
+            from tqdm.notebook import tqdm
+        else:
+            from tqdm import tqdm  
+            
+
+
+        # calculate the number of permutations based on the target_fpr
+        if n_permutations is None:
+            # calculate the number of permutations based on the target_fpr
+            n_permutations = int(1 / (target_fpr/10.0))
+            if verbose: print(f"Number of permutations set to {n_permutations} based on target fpr of {target_fpr}.")
+
+        # dict to hold the results of permutation analysis
+        permuted_results = {}  # keys are the alpha values
+        
+        # create n_permutations
+        permuted_dfs = self.create_permuted_dfs(df, n_permutations=n_permutations)
+        
+        # iterate over the penalty_discount values and alpha values
+        for alpha_value in alpha_values:
+            for pd_value in pd_values:
+                penalty_discount = pd_value
+                combined_key = f"pd-{penalty_discount}_alpha-{alpha_value}"
+                # check if the penalty discount is already in the results
+                if verbose: print(f"Permutation with penalty discount {penalty_discount} and alpha {alpha_value}...")
+                # create key for this penalty discount
+                permuted_results[combined_key] = {"data": []}
+                pass
+            
+                sum_fpr = 0.0
+                
+                # iterate over the permuted dataframes
+                #for permuted_df in permuted_dfs:
+                for i in tqdm(range(n_permutations), desc=f"Finding fpr for pd {pd_value} alpha {alpha_value}", unit="perm"):
+                    
+                    permuted_df = permuted_dfs[i]
+                    
+                    if lag_flag == 1:
+                        # add lag columns
+                        permuted_df = self.add_lag_columns(permuted_df, lag_stub=lag_stub)
+                    # standardize the data
+                    permuted_df = self.standardize_df_cols(permuted_df)
+                    # run the search
+                    searchResult = self.run_model_search(permuted_df, model='gfci', 
+                                                        knowledge=knowledge, 
+                                                        score={'sem_bic': {'penalty_discount': penalty_discount}},
+                                                        test={'fisher_z': {'alpha': alpha_value}},
+                                                        verbose=False)
+                    # create dictionary for result to include penalty_discount
+                    
+                    # calculate fpr
+                    total_possible_edges = (len(permuted_df.columns) * (len(permuted_df.columns) - 1)) / 2
+                    fpr = len(searchResult['setEdges']) / total_possible_edges
+                    sum_fpr += fpr
+                    
+                    info = {
+                        'penaltyDiscount': penalty_discount,
+                        'alphaValue': alpha_value,
+                        'numEdges': len(searchResult['setEdges']),
+                        'edges': list(searchResult['setEdges']),
+                        'numCols': len(permuted_df.columns),
+                        'fpr': fpr
+                    }
+                    permuted_results[combined_key]['data'].append(info)
+                print(f"\n pd{penalty_discount} alpha {alpha_value} with fpr {fpr} complete!")
+                
+                # calculate the avg fpr
+                avg_fpr = sum_fpr / n_permutations
+                # store in the results dict
+                permuted_results[combined_key]['avg_fpr'] = avg_fpr
+                permuted_results[combined_key]['alpha'] = alpha_value
+                permuted_results[combined_key]['pd'] = pd_value
+
+                if verbose: print(f"Avg fpr for penalty discount {penalty_discount} and alpha {alpha_value} is {avg_fpr}")
+                
+                # check if avg_fpr is less than or equal to target_fpr
+                if avg_fpr <= target_fpr:
+                    #
+                    # use linear interpolation to find the best value
+
+                    # get the current and previous values for fpr and pd
+                    # from the permuted_results
+                    # Get a list of items (key-value pairs)
+                    items_list = list(permuted_results.items())
+
+                    # Get the last entry (key-value pair)
+                    last_entry = items_list[-1]
+                    # Get the next-to-last entry (key-value pair)
+                    next_to_last_entry = items_list[-2]
+
+                    # get the last and next to last values for fpr, pd and alpha
+                    last_fpr = last_entry[1]['avg_fpr']
+                    last_pd = last_entry[1]['pd']
+                    next_to_last_fpr = next_to_last_entry[1]['avg_fpr']
+                    next_to_last_pd = next_to_last_entry[1]['pd']
+                    last_alpha = last_entry[1]['alpha']
+                    next_to_last_alpha = next_to_last_entry[1]['alpha']
+
+                    if len(alpha_values) == 1:
+                        # calculate the slope
+                        slope = (np.log10(last_fpr) - np.log10(next_to_last_fpr)) / (last_pd - next_to_last_pd)
+                        # calculate the intercept
+                        intercept = np.log10(last_fpr) - (slope * last_pd)
+                        # calculate the best pd value
+                        best_pd = (float(np.log10(target_fpr)) - intercept) / slope
+                        result = {
+                            'penaltyDiscount': float(best_pd),
+                            'alphaValue': last_alpha,
+                            'calc_fpr': target_fpr,
+                            'n_permutations': n_permutations
+                        }
+                        return result
+                    elif len(pd_values) == 1:
+                        # calculate the slope for calculating the best alpha value
+                        slope = (np.log10(last_fpr) - np.log10(next_to_last_fpr)) / (last_alpha - next_to_last_alpha)
+                        # calculate the intercept
+                        intercept = np.log10(last_fpr) - (slope * last_alpha)
+                        # calculate the best alpha value
+                        best_alpha = (np.log10(target_fpr) - intercept) / slope
+                        result = {
+                            'penaltyDiscount': last_pd,
+                            'alphaValue': best_alpha,
+                            'calc_fpr': target_fpr,
+                            'n_permutations': n_permutations,
+                            'run_results': permuted_results
+                        }
+                        return result
+                    else:
+                        raise ValueError("Both pd_values and alpha_values cannot be lists.")
+                    break
+                pass
+            pass
+
 
     def in_jupyter(self)->bool:
         """
