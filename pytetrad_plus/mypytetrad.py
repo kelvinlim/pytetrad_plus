@@ -11,6 +11,7 @@ from typing import Optional, List
 from dotenv import load_dotenv
 import numpy as np
 from sklearn.preprocessing import StandardScaler
+from tqdm import tqdm
 
 # set the PATH if needed
 hostname = socket.gethostname() 
@@ -47,12 +48,14 @@ import re
 import pytetrad.tools.translate as tr
 import pandas as pd
 import semopy
+import tqdm
 
-__version_info__ = ('0', '2', '3')
+__version_info__ = ('0', '2', '4')
 __version__ = '.'.join(__version_info__)
 
 version_history = \
 """
+0.2.4 - added stability analysis with edge merging
 0.2.3 - add generate_permuted_dfs - permutes data in each column
 0.2.2 - generate semopy plot
 0.2.1 - add subsample_df and reading in csv
@@ -297,7 +300,8 @@ class MyTetradSearch(TetradSearchBaseClass):
         edge_counts = {}
         
         # loop over the number of runs
-        for i in range(runs):
+        myRuns = range(runs)
+        for i in tqdm.tqdm(myRuns, desc=f"Running stability search with {runs} runs", unit="run"):
             # subsample the DataFrame
             df = self.subsample_df(full_df, fraction=subsample_fraction, random_state=random_state)
             
@@ -320,23 +324,127 @@ class MyTetradSearch(TetradSearchBaseClass):
             for edge in edges:
                 edge_counts[edge] = edge_counts.get(edge, 0) + 1
 
-            pass
+        print(f"\nSearch complete!")
+        
         # check similarity of edges, sort alphabetically
         # get all the keys and then sort them
+
         sorted_edge_keys = sorted(edge_counts.keys())
         
         sorted_edge_counts = {}
         # loop over the sorted keys and store the fractional count 
         for edge in sorted_edge_keys:
             sorted_edge_counts[edge] = edge_counts[edge]/runs
+              
+        selected_edges = self.select_edges(sorted_edge_counts, min_fraction=min_fraction)
+
+        return selected_edges, sorted_edge_counts
+    
+    def select_edges(self, edge_counts: dict, min_fraction: float) -> dict:
+        """
+        Select edges based on a fraction of the total edges
+        Args:
+            edges - dictionary with the edges and their counts
+            min_fraction - mininum fraction of edges to select
+        Returns:
+            dict - dict of selected edges as keys and their fraction as values
+        """
+
+        selected_edges = {}  # holds the selected edges as strings e.g. 'A --> B' with fraction
+        
+        # create a dataframe with src, edge, dest and fraction, extract the src, edge, dest from each edge
+        # and add to the dataframe
+        edge_df = pd.DataFrame(edge_counts.items(), columns=['edge', 'fraction'])
+        edge_df[['src', 'edge_type', 'dest']] = edge_df['edge'].str.split(' ', expand=True)
+        # drop the edge column
+        edge_df = edge_df.drop(columns=['edge'])
+        
+        # first lets process the edge_type of --> and o->
+        # filter the df for edge_type of --> and o->
+        directed_edge_df = edge_df[edge_df['edge_type'].isin(['-->', 'o->'])]
+        # sort the directed edges by src, dest, and fraction (descending)
+        directed_edge_df = directed_edge_df.sort_values(by=['src', 'dest', 'fraction'], ascending=[True, True, False])
+
+        # get the rows where the src and dest only appear once in the df
+        single_directed_edges = directed_edge_df.groupby(['src', 'dest']).filter(lambda x: len(x) == 1)
+        
+        # iterate over the rows and add them to the edge list if the fraction is >= min_fraction
+        for index, row in single_directed_edges.iterrows():
+            if row['fraction'] >= min_fraction:
+                # create the edge string
+                edge_str = f"{row['src']} {row['edge_type']} {row['dest']}"
+                # add to the dictionary
+                selected_edges[edge_str] = row['fraction']
+                pass
             
-        # loop over the edges and keep only those that are present in at least min_fraction of runs
-        min_count = int(runs * min_fraction)
-        stable_edges = [edge for edge, count in edge_counts.items() if count >= min_count]
-        # return the edges
-        return stable_edges, sorted_edge_counts
+        # now lets process the directed edges that have multiple rows                   
+        # keep the rows where the src and dest are the same across rows
+        multiple_directed_edges = directed_edge_df.groupby(['src', 'dest']).filter(lambda x: len(x) > 1)
+        
+        # iterate over two rows, and if the sum of fraction is greater than min_fraction then keep the edge
+        for i in range(0, len(multiple_directed_edges), 2):
+            row_pairs = multiple_directed_edges.iloc[i:i+2]
+            # get the sum of the fraction
+            fraction_sum = row_pairs['fraction'].sum()
+            # check if the sum is greater than min_fraction
+            if fraction_sum >= min_fraction:
+                # create the edge string
+                # we use the first row to create the edge string since it has the highest fraction
+                edge_str = f"{row_pairs.iloc[0]['src']} {row_pairs.iloc[0]['edge_type']} {row_pairs.iloc[0]['dest']}"
+                # add to the dictionary
+                selected_edges[edge_str] = float(fraction_sum)
+                pass
+            pass
+        
+        # get the undirected edges
+        undirected_edges_df = edge_df[~edge_df['edge_type'].isin(['-->', 'o->'])]
+
+        # iterate over the df using iloc, if the src > dest then swap them in the row and update the df
+        # this will make sure that the edges are in the same order
+        # for example, A o-o B and B <-> A will be made adjacent to each other when sorted
+        for i in range(len(undirected_edges_df)):
+            row = undirected_edges_df.iloc[i]
+            if row['src'] > row['dest']:
+                # swap the src and dest
+                temp = row['src']
+                row['src'] = row['dest']
+                row['dest'] = temp
+                # update the row in the df using iloc
+                undirected_edges_df.iloc[i] = row
+            pass
     
-    
+        # sort the undirected edges by src, dest, and fraction (descending)
+        undirected_edges_df = undirected_edges_df.sort_values(by=['src', 'dest', 'fraction'], ascending=[True, True, False])
+        # get the undirected edges that have single rows
+        single_undirected_edge_df = undirected_edges_df.groupby(['src', 'dest']).filter(lambda x: len(x) == 1)
+        
+        # iterate over the rows and add them to the edge dict if the fraction is >= min_fraction
+        for index, row in single_undirected_edge_df.iterrows():
+            if row['fraction'] >= min_fraction:
+                # create the edge string
+                edge_str = f"{row['src']} {row['edge_type']} {row['dest']}"
+                # add to the dictionary
+                selected_edges[edge_str] = row['fraction']
+                pass
+
+        # now lets process the undirected edges that have multiple rows
+        multiple_undirected_edges_df = undirected_edges_df.groupby(['src', 'dest']).filter(lambda x: len(x) > 1)
+        # iterate over two rows, and if the sum of fraction is greater than min_fraction then keep the edge
+        for i in range(0, len(multiple_undirected_edges_df), 2):
+            row_pairs = multiple_undirected_edges_df.iloc[i:i+2]
+            # get the sum of the fraction
+            fraction_sum = row_pairs['fraction'].sum()
+            # check if the sum is greater than min_fraction
+            if fraction_sum >= min_fraction:
+                # create the edge string
+                # we use the first row to create the edge string since it has the highest fraction
+                edge_str = f"{row_pairs.iloc[0]['src']} {row_pairs.iloc[0]['edge_type']} {row_pairs.iloc[0]['dest']}"
+                # add to the dictionary
+                selected_edges[edge_str] = float(fraction_sum)
+                pass
+            pass
+
+        return list(selected_edges.keys())
 
     def read_prior_file(self, prior_file) -> list:
         """
