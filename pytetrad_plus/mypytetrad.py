@@ -11,7 +11,6 @@ from typing import Optional, List
 from dotenv import load_dotenv
 import numpy as np
 from sklearn.preprocessing import StandardScaler
-from tqdm import tqdm
 
 # set the PATH if needed
 hostname = socket.gethostname() 
@@ -50,11 +49,12 @@ import pandas as pd
 import semopy
 import tqdm
 
-__version_info__ = ('0', '2', '4')
+__version_info__ = ('0', '2', '5')
 __version__ = '.'.join(__version_info__)
 
 version_history = \
 """
+0.2.5 - added progress bar to run_stability_search
 0.2.4 - added stability analysis with edge merging
 0.2.3 - add generate_permuted_dfs - permutes data in each column
 0.2.2 - generate semopy plot
@@ -299,9 +299,15 @@ class MyTetradSearch(TetradSearchBaseClass):
         # dictionary where key is the edge and value is the number of times it was found
         edge_counts = {}
         
+        # check if in jupyter to select the progress bar code
+        if self.in_jupyter():
+            from tqdm.notebook import tqdm
+        else:
+            from tqdm import tqdm      
+              
         # loop over the number of runs
         myRuns = range(runs)
-        for i in tqdm.tqdm(myRuns, desc=f"Running stability search with {runs} runs", unit="run"):
+        for i in tqdm(myRuns, desc=f"Running stability search with {runs} runs", unit="run"):
             # subsample the DataFrame
             df = self.subsample_df(full_df, fraction=subsample_fraction, random_state=random_state)
             
@@ -402,15 +408,25 @@ class MyTetradSearch(TetradSearchBaseClass):
         # iterate over the df using iloc, if the src > dest then swap them in the row and update the df
         # this will make sure that the edges are in the same order
         # for example, A o-o B and B <-> A will be made adjacent to each other when sorted
-        for i in range(len(undirected_edges_df)):
-            row = undirected_edges_df.iloc[i]
-            if row['src'] > row['dest']:
-                # swap the src and dest
-                temp = row['src']
-                row['src'] = row['dest']
-                row['dest'] = temp
-                # update the row in the df using iloc
-                undirected_edges_df.iloc[i] = row
+        for i in undirected_edges_df.index:
+            # Use .loc to access the specific row and columns directly
+            # This ensures you are working with the original DataFrame
+            # and prevents the SettingWithCopyWarning
+            if undirected_edges_df.loc[i, 'src'] > undirected_edges_df.loc[i, 'dest']:
+                # Swap the values directly in the DataFrame using .loc
+                # We use tuple assignment for a clean swap
+                undirected_edges_df.loc[i, 'src'], undirected_edges_df.loc[i, 'dest'] = \
+                undirected_edges_df.loc[i, 'dest'], undirected_edges_df.loc[i, 'src']
+            
+            
+            # row = undirected_edges_df.iloc[i]
+            # if row['src'] > row['dest']:
+            #     # swap the src and dest
+            #     temp = row['src']
+            #     row['src'] = row['dest']
+            #     row['dest'] = temp
+            #     # update the row in the df using iloc
+            #     undirected_edges_df.iloc[i] = row
             pass
     
         # sort the undirected edges by src, dest, and fraction (descending)
@@ -741,7 +757,28 @@ class MyTetradSearch(TetradSearchBaseClass):
                 
                 obj.modify_existing_edge(source, target, color=color, strength=estimate, pvalue=pvalue)
                 pass
+
+    def in_jupyter(self)->bool:
+        """
+        Check if the code is running in a Jupyter Notebook environment.
+
+        Returns:
+            bool: True if running in a Jupyter Notebook, False otherwise.
+        
+        """
+        try:
+            # Check if the IPython module is available
+            from IPython import get_ipython
+            ipython = get_ipython()
             
+            # Check if the current environment is a Jupyter Notebook
+            if ipython is not None and 'IPKernelApp' in ipython.config:
+                return True
+        except ImportError:
+            pass
+        
+        return False
+
 if __name__ == "__main__":
     # Example usage of MyTetradSearch
     

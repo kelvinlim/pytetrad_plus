@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pytetrad_plus"
-version = "0.2.4"
+version = "0.2.5"
 authors = [
   { name = "Kelvin O. Lim", email = "lim.kelvino@gmail.com" },
 ]
@@ -25,8 +25,8 @@ dependencies = [
     "PyYAML",
     "seaborn",
     "semopy",
-    "graphviz"
-    "tdqm",
+    "graphviz",
+    "tdqm"
 ]
 
 [tool.setuptools]
