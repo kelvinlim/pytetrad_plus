@@ -1,0 +1,135 @@
+{
+    "setEdges": [
+        "PANAS_NA --> worry_scale",
+        "PHQ9 --> PANAS_PA",
+        "TIB_lag o-> TIB",
+        "TST_lag o-> TST",
+        "alcohol_bev_lag o-> alcohol_bev",
+        "PHQ9_lag o-> PHQ9",
+        "worry_scale_lag --> worry_scale",
+        "PANAS_PA <-> PANAS_PA_lag",
+        "TIB <-> TST",
+        "TIB_lag o-o TST_lag"
+    ],
+    "ESMean": 0.5589725712556621,
+    "ESStd": 0.24950875188522464,
+    "estimatesSEM": [
+        {
+            "dest": "PHQ9",
+            "op": "~",
+            "src": "PHQ9_lag",
+            "Estimate": 0.8605624069878,
+            "Std. Err": 0.02012274454037894,
+            "z-value": 42.76565779673853,
+            "p-value": 0.0
+        },
+        {
+            "dest": "worry_scale",
+            "op": "~",
+            "src": "PANAS_NA",
+            "Estimate": -0.10575429530275764,
+            "Std. Err": 0.02193057845237323,
+            "z-value": -4.822230089717089,
+            "p-value": 1.4196205395666794e-06
+        },
+        {
+            "dest": "worry_scale",
+            "op": "~",
+            "src": "worry_scale_lag",
+            "Estimate": 0.813005320741029,
+            "Std. Err": 0.02193057845237324,
+            "z-value": 37.071768192050456,
+            "p-value": 0.0
+        },
+        {
+            "dest": "PANAS_PA",
+            "op": "~",
+            "src": "PHQ9",
+            "Estimate": -0.4777419207996922,
+            "Std. Err": 0.034727064569292344,
+            "z-value": -13.757048766177084,
+            "p-value": 0.0
+        },
+        {
+            "dest": "TIB",
+            "op": "~",
+            "src": "TIB_lag",
+            "Estimate": 0.48215027076984873,
+            "Std. Err": 0.03462657811903335,
+            "z-value": 13.924282933718441,
+            "p-value": 0.0
+        },
+        {
+            "dest": "TST",
+            "op": "~",
+            "src": "TST_lag",
+            "Estimate": 0.40931265590162635,
+            "Std. Err": 0.03606274516275022,
+            "z-value": 11.350013817391302,
+            "p-value": 0.0
+        },
+        {
+            "dest": "alcohol_bev",
+            "op": "~",
+            "src": "alcohol_bev_lag",
+            "Estimate": 0.6513469485338202,
+            "Std. Err": 0.02999954921297177,
+            "z-value": 21.711891198367297,
+            "p-value": 0.0
+        },
+        {
+            "dest": "PHQ9",
+            "op": "~~",
+            "src": "PHQ9",
+            "Estimate": 0.2591519026159041,
+            "Std. Err": 0.014487031768689184,
+            "z-value": 17.888543818763512,
+            "p-value": 0.0
+        },
+        {
+            "dest": "PANAS_PA",
+            "op": "~~",
+            "src": "PANAS_PA",
+            "Estimate": 0.7716037186349598,
+            "Std. Err": 0.043133959163984804,
+            "z-value": 17.88854381958359,
+            "p-value": 0.0
+        },
+        {
+            "dest": "TIB",
+            "op": "~~",
+            "src": "TIB",
+            "Estimate": 0.7673599438294527,
+            "Std. Err": 0.04289672494032692,
+            "z-value": 17.8885438195813,
+            "p-value": 0.0
+        },
+        {
+            "dest": "TST",
+            "op": "~~",
+            "src": "TST",
+            "Estimate": 0.8323338167510169,
+            "Std. Err": 0.04652887485567816,
+            "z-value": 17.88854381961386,
+            "p-value": 0.0
+        },
+        {
+            "dest": "alcohol_bev",
+            "op": "~~",
+            "src": "alcohol_bev",
+            "Estimate": 0.5759826899081699,
+            "Std. Err": 0.032198411212446244,
+            "z-value": 17.88854381944275,
+            "p-value": 0.0
+        },
+        {
+            "dest": "worry_scale",
+            "op": "~~",
+            "src": "worry_scale",
+            "Estimate": 0.26033753554752964,
+            "Std. Err": 0.014553310664476128,
+            "z-value": 17.888543818769115,
+            "p-value": 0.0
+        }
+    ]
+}

@@ -1,0 +1,8 @@
+jPype1
+pandas
+python-dotenv
+PyYAML
+seaborn
+semopy
+graphviz
+tdqm

@@ -54,6 +54,7 @@ __version__ = '.'.join(__version_info__)
 
 version_history = \
 """
+0.2.6 - set default verbose to False to stop the adjacentNodes messages
 0.2.5 - added progress bar to run_stability_search
 0.2.4 - added stability analysis with edge merging
 0.2.3 - add generate_permuted_dfs - permutes data in each column
@@ -89,6 +90,7 @@ except Exception as e:
 # Add this to see its attributes, might help identify if it's a class or module
 # print(f"Attributes of TetradSearch: {dir(TetradSearch)}")
 
+from edu.cmu.tetrad.util import Params, Parameters
 
 class MyTetradSearch(TetradSearchBaseClass):
     def __init__(self):
@@ -323,7 +325,8 @@ class MyTetradSearch(TetradSearchBaseClass):
             searchResult = self.run_model_search(df, model=model, 
                                                 knowledge=knowledge, 
                                                 score=score,
-                                                test=test)
+                                                test=test,
+                                                verbose=True)
             # get the edges
             edges = searchResult['setEdges']
             # loop over the edges
@@ -688,6 +691,7 @@ class MyTetradSearch(TetradSearchBaseClass):
         score = kwargs.get('score', None)
         test = kwargs.get('test', None)
         depth = kwargs.get('depth', -1)
+        verbose = kwargs.get('verbose', False)
         
         # load the data into the TetradSearch object
         self.load_df_into_ts(df)
@@ -711,12 +715,19 @@ class MyTetradSearch(TetradSearchBaseClass):
         if knowledge is not None:
             self.load_knowledge(knowledge)
         
+        # set the verbosity
+        if verbose == False:
+            self.params.set(Params.VERBOSE, False)
+
         ## Run the selected search
         if model == 'fges':
-            x = self.run_fges()
+            x = self.run_fges(verbose=verbose)
         elif model == 'gfci':   
+            # set ther verbosity
+                
             x = self.run_gfci(max_degree=1000,
-                              complete_rule_set_used=False)
+                              complete_rule_set_used=False,
+                              )
             
 
         soutput = self.get_string()

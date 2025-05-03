@@ -1,0 +1,5171 @@
+[
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 1,
+        "edges": [
+            "TIB_lag o-> worry_scale"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 1,
+        "edges": [
+            "alcohol_bev_lag o-> PANAS_PA"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 2,
+        "edges": [
+            "PANAS_NA_lag o-o TIB_lag",
+            "PANAS_NA o-o TIB"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 1,
+        "edges": [
+            "alcohol_bev_lag o-> TST"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 1,
+        "edges": [
+            "PHQ9_lag o-> PHQ9"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 4,
+        "edges": [
+            "PANAS_NA_lag o-> PANAS_NA",
+            "PHQ9 o-o alcohol_bev",
+            "PANAS_NA --> worry_scale",
+            "worry_scale_lag o-o PANAS_NA_lag"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 2,
+        "edges": [
+            "PANAS_PA_lag o-> PHQ9",
+            "alcohol_bev_lag o-> alcohol_bev"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 1,
+        "edges": [
+            "worry_scale_lag o-> PHQ9"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 1,
+        "edges": [
+            "worry_scale o-o PANAS_NA"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 6,
+        "edges": [
+            "alcohol_bev_lag o-o worry_scale_lag",
+            "alcohol_bev o-o worry_scale",
+            "PANAS_PA o-o alcohol_bev",
+            "TST o-o TIB",
+            "TIB_lag o-o TST_lag",
+            "PANAS_PA_lag o-o alcohol_bev_lag"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 2,
+        "edges": [
+            "PHQ9 o-o TIB",
+            "TIB_lag o-o PHQ9_lag"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 1,
+        "edges": [
+            "PHQ9_lag o-> worry_scale"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 1,
+        "edges": [
+            "TIB_lag o-> PANAS_PA"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 2,
+        "edges": [
+            "PHQ9_lag o-o alcohol_bev_lag",
+            "TST_lag o-> PANAS_NA"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 1,
+        "edges": [
+            "TST_lag o-> PANAS_NA"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 2,
+        "edges": [
+            "PANAS_PA_lag o-o TST_lag",
+            "TST o-o PANAS_PA"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 1,
+        "edges": [
+            "TST_lag o-> worry_scale"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 1,
+        "edges": [
+            "alcohol_bev_lag o-> PANAS_NA"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 1,
+        "edges": [
+            "PHQ9_lag o-> alcohol_bev"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 2,
+        "edges": [
+            "PANAS_PA_lag o-> PHQ9",
+            "TIB_lag o-> TST"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 2,
+        "edges": [
+            "PANAS_NA_lag o-> TST",
+            "PHQ9_lag o-> TIB"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 2,
+        "edges": [
+            "worry_scale_lag o-o PANAS_NA_lag",
+            "worry_scale o-o PANAS_NA"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 1,
+        "edges": [
+            "alcohol_bev_lag o-> PANAS_NA"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 2,
+        "edges": [
+            "TST o-o PANAS_NA",
+            "PANAS_NA_lag o-o TST_lag"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 1,
+        "edges": [
+            "alcohol_bev_lag o-> PANAS_NA"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 2,
+        "edges": [
+            "TIB o-o PANAS_NA",
+            "TIB_lag o-o PANAS_NA_lag"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 3,
+        "edges": [
+            "TST o-o TIB",
+            "PANAS_PA_lag o-> worry_scale",
+            "TST_lag o-o TIB_lag"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 1,
+        "edges": [
+            "TST_lag o-> PANAS_PA"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 4,
+        "edges": [
+            "PANAS_NA_lag o-o alcohol_bev_lag",
+            "TIB o-o PHQ9",
+            "PANAS_NA o-o alcohol_bev",
+            "TIB_lag o-o PHQ9_lag"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 3,
+        "edges": [
+            "TST o-o worry_scale",
+            "worry_scale_lag o-o TST_lag",
+            "alcohol_bev_lag o-> PHQ9"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 2,
+        "edges": [
+            "PHQ9 o-o worry_scale",
+            "worry_scale_lag o-o PHQ9_lag"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 1,
+        "edges": [
+            "worry_scale_lag o-> PHQ9"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 4,
+        "edges": [
+            "PHQ9_lag o-> PANAS_PA",
+            "PANAS_NA_lag o-o PHQ9_lag",
+            "PHQ9 o-o PANAS_NA",
+            "worry_scale_lag o-> alcohol_bev"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 2,
+        "edges": [
+            "PANAS_PA_lag o-o PANAS_NA_lag",
+            "PANAS_PA o-o PANAS_NA"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 1,
+        "edges": [
+            "TST_lag o-> PANAS_NA"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 1,
+        "edges": [
+            "PHQ9_lag o-> PANAS_PA"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 2,
+        "edges": [
+            "PANAS_NA_lag o-> TIB",
+            "PANAS_PA_lag o-> TST"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 1,
+        "edges": [
+            "worry_scale_lag o-> worry_scale"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 1,
+        "edges": [
+            "PHQ9_lag o-> PHQ9"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 1,
+        "edges": [
+            "PHQ9_lag o-> TIB"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 1,
+        "edges": [
+            "PANAS_NA_lag o-> PHQ9"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 2,
+        "edges": [
+            "TST o-o TIB",
+            "TST_lag o-o TIB_lag"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 1,
+        "edges": [
+            "TIB_lag o-> TIB"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 2,
+        "edges": [
+            "TST o-o worry_scale",
+            "TST_lag o-o worry_scale_lag"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 2,
+        "edges": [
+            "PHQ9_lag o-> PHQ9",
+            "worry_scale_lag o-> PANAS_PA"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 2,
+        "edges": [
+            "PHQ9_lag o-o PANAS_PA_lag",
+            "PHQ9 o-o PANAS_PA"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 2,
+        "edges": [
+            "PHQ9 o-o alcohol_bev",
+            "alcohol_bev_lag o-o PHQ9_lag"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 2,
+        "edges": [
+            "TST o-o alcohol_bev",
+            "TST_lag o-o alcohol_bev_lag"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 2,
+        "edges": [
+            "PANAS_PA_lag o-o PANAS_NA_lag",
+            "PANAS_NA o-o PANAS_PA"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 3,
+        "edges": [
+            "TST_lag o-> worry_scale",
+            "PHQ9_lag o-o PANAS_PA_lag",
+            "PHQ9 o-o PANAS_PA"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 1,
+        "edges": [
+            "PHQ9_lag o-> worry_scale"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 1,
+        "edges": [
+            "PHQ9_lag o-> worry_scale"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 3,
+        "edges": [
+            "PANAS_PA_lag o-o TIB_lag",
+            "TIB o-o PANAS_PA",
+            "alcohol_bev_lag o-> PANAS_NA"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 2,
+        "edges": [
+            "worry_scale o-o TST",
+            "worry_scale_lag o-o TST_lag"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 1,
+        "edges": [
+            "PHQ9_lag o-> PANAS_NA"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 2,
+        "edges": [
+            "worry_scale_lag o-> PANAS_NA",
+            "TST_lag o-> TST"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 1,
+        "edges": [
+            "PANAS_NA_lag o-> TST"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 1,
+        "edges": [
+            "PANAS_NA_lag o-> PANAS_PA"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 1,
+        "edges": [
+            "TST_lag o-> TIB"
+        ]
+    },
+    {
+        "penaltyDiscount": 1.0,
+        "numEdges": 1,
+        "edges": [
+            "PANAS_NA_lag o-> PHQ9"
+        ]
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 2,
+        "edges": [
+            "TST o-o PANAS_NA",
+            "PANAS_NA_lag o-o TST_lag"
+        ]
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 1,
+        "edges": [
+            "PHQ9_lag o-> TIB"
+        ]
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 2,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 3,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 4,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 5,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 6,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 7,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 8,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 9,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    },
+    {
+        "penaltyDiscount": 10,
+        "numEdges": 0,
+        "edges": []
+    }
+]

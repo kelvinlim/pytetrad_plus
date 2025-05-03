@@ -1,0 +1,27 @@
+digraph {
+	node [color=black shape=oval]
+	dpi=300
+	PANAS_NA_lag -> PANAS_NA [label="0.853
+0.000" arrowhead=normal arrowtail=odot color=green dir=both]
+	PANAS_NA_lag -> worry_scale_lag [label="" arrowhead=odot arrowtail=odot color=black dir=both]
+	worry_scale_lag -> worry_scale [label="0.855
+0.000" arrowhead=normal arrowtail=odot color=green dir=both]
+	TIB -> TST [label="" arrowhead=normal arrowtail=normal color=black dir=both]
+	PANAS_NA -> PHQ9 [label="0.291
+0.000" arrowhead=normal arrowtail=none color=green dir=both]
+	alcohol_bev_lag -> alcohol_bev [label="0.651
+0.000" arrowhead=normal arrowtail=odot color=green dir=both]
+	PHQ9 -> PANAS_PA [label="-0.478
+0.000" arrowhead=normal arrowtail=none color=red dir=both]
+	PHQ9_lag -> PANAS_NA_lag [label="" arrowhead=odot arrowtail=odot color=black dir=both]
+	TST_lag -> TST [label="0.409
+0.000" arrowhead=normal arrowtail=odot color=green dir=both]
+	PANAS_PA -> PANAS_PA_lag [label="" arrowhead=normal arrowtail=normal color=black dir=both]
+	TST_lag -> TIB_lag [label="" arrowhead=odot arrowtail=odot color=black dir=both]
+	PHQ9_lag -> PANAS_PA_lag [label="-0.479
+0.000" arrowhead=normal arrowtail=odot color=red dir=both]
+	TIB_lag -> TIB [label="0.482
+0.000" arrowhead=normal arrowtail=odot color=green dir=both]
+	PHQ9_lag -> PHQ9 [label="0.666
+0.000" arrowhead=normal arrowtail=odot color=green dir=both]
+}

@@ -1,0 +1,14 @@
+digraph {
+	node [color=black shape=oval]
+	dpi=96
+	PANAS_NA -> worry_scale [label="" arrowhead=normal arrowtail=none color=black dir=both]
+	PHQ9 -> PANAS_PA [label="" arrowhead=normal arrowtail=none color=black dir=both]
+	TIB_lag -> TIB [label="" arrowhead=normal arrowtail=odot color=black dir=both]
+	TST_lag -> TST [label="" arrowhead=normal arrowtail=odot color=black dir=both]
+	alcohol_bev_lag -> alcohol_bev [label="" arrowhead=normal arrowtail=odot color=black dir=both]
+	PHQ9_lag -> PHQ9 [label="" arrowhead=normal arrowtail=odot color=black dir=both]
+	worry_scale_lag -> worry_scale [label="" arrowhead=normal arrowtail=none color=black dir=both]
+	PANAS_PA -> PANAS_PA_lag [label="" arrowhead=normal arrowtail=normal color=black dir=both]
+	TIB -> TST [label="" arrowhead=normal arrowtail=normal color=black dir=both]
+	TIB_lag -> TST_lag [label="" arrowhead=odot arrowtail=odot color=black dir=both]
+}

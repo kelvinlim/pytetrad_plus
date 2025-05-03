@@ -1,0 +1,167 @@
+{
+    "setEdges": [
+        "alcohol_bev_lag o-> alcohol_bev",
+        "worry_scale --> PANAS_PA",
+        "PHQ9 --> PANAS_NA",
+        "TIB <-> TST",
+        "TIB_lag o-> TIB",
+        "PANAS_NA --> worry_scale",
+        "TIB_lag o-o TST_lag",
+        "PANAS_PA_lag <-> PHQ9_lag",
+        "PANAS_PA <-> PANAS_PA_lag",
+        "PANAS_NA <-> PANAS_NA_lag",
+        "PHQ9_lag --> PHQ9",
+        "TST_lag o-> TST",
+        "PANAS_NA_lag <-> PHQ9_lag",
+        "worry_scale_lag o-> worry_scale",
+        "PHQ9 --> PANAS_PA"
+    ],
+    "ESMean": 0.5355922140034779,
+    "ESStd": 0.24239579088315807,
+    "estimatesSEM": [
+        {
+            "dest": "PANAS_NA",
+            "op": "~",
+            "src": "PHQ9",
+            "Estimate": 0.7365534556378031,
+            "Std. Err": 0.02673797444509729,
+            "z-value": 27.547092511538825,
+            "p-value": 0.0
+        },
+        {
+            "dest": "worry_scale",
+            "op": "~",
+            "src": "PANAS_NA",
+            "Estimate": -0.10567314441870965,
+            "Std. Err": 0.020620271780922093,
+            "z-value": -5.1247212227025,
+            "p-value": 2.979783009227077e-07
+        },
+        {
+            "dest": "worry_scale",
+            "op": "~",
+            "src": "worry_scale_lag",
+            "Estimate": 0.8131069581235061,
+            "Std. Err": 0.02062318976399956,
+            "z-value": 39.42682811867747,
+            "p-value": 0.0
+        },
+        {
+            "dest": "PHQ9",
+            "op": "~",
+            "src": "PHQ9_lag",
+            "Estimate": 0.8608213770357303,
+            "Std. Err": 0.020125009854144605,
+            "z-value": 42.77371207426646,
+            "p-value": 0.0
+        },
+        {
+            "dest": "alcohol_bev",
+            "op": "~",
+            "src": "alcohol_bev_lag",
+            "Estimate": 0.6512208910810563,
+            "Std. Err": 0.029991565301439458,
+            "z-value": 21.713467920531883,
+            "p-value": 0.0
+        },
+        {
+            "dest": "PANAS_PA",
+            "op": "~",
+            "src": "worry_scale",
+            "Estimate": 0.24196411034929585,
+            "Std. Err": 0.03589947884796635,
+            "z-value": 6.740045206986695,
+            "p-value": 1.5833778732599058e-11
+        },
+        {
+            "dest": "PANAS_PA",
+            "op": "~",
+            "src": "PHQ9",
+            "Estimate": -0.3966099248147754,
+            "Std. Err": 0.035327569566597355,
+            "z-value": -11.226640543609552,
+            "p-value": 0.0
+        },
+        {
+            "dest": "TIB",
+            "op": "~",
+            "src": "TIB_lag",
+            "Estimate": 0.48200651998416627,
+            "Std. Err": 0.0346301788671699,
+            "z-value": 13.918684099757838,
+            "p-value": 0.0
+        },
+        {
+            "dest": "TST",
+            "op": "~",
+            "src": "TST_lag",
+            "Estimate": 0.4092968117801368,
+            "Std. Err": 0.036059837395493344,
+            "z-value": 11.350489667486386,
+            "p-value": 0.0
+        },
+        {
+            "dest": "PANAS_NA",
+            "op": "~~",
+            "src": "PANAS_NA",
+            "Estimate": 0.4576506897456054,
+            "Std. Err": 0.025583451305520984,
+            "z-value": 17.8885438192991,
+            "p-value": 0.0
+        },
+        {
+            "dest": "PHQ9",
+            "op": "~~",
+            "src": "PHQ9",
+            "Estimate": 0.2592102538428275,
+            "Std. Err": 0.014490293701438456,
+            "z-value": 17.8885438187638,
+            "p-value": 0.0
+        },
+        {
+            "dest": "worry_scale",
+            "op": "~~",
+            "src": "worry_scale",
+            "Estimate": 0.2601887217291424,
+            "Std. Err": 0.01454499171912848,
+            "z-value": 17.888543818768436,
+            "p-value": 0.0
+        },
+        {
+            "dest": "PANAS_PA",
+            "op": "~~",
+            "src": "PANAS_PA",
+            "Estimate": 0.7197772691339425,
+            "Std. Err": 0.04023677256106639,
+            "z-value": 17.888543819553746,
+            "p-value": 0.0
+        },
+        {
+            "dest": "TIB",
+            "op": "~~",
+            "src": "TIB",
+            "Estimate": 0.7675195445581962,
+            "Std. Err": 0.042905646892295125,
+            "z-value": 17.888543819581393,
+            "p-value": 0.0
+        },
+        {
+            "dest": "TST",
+            "op": "~~",
+            "src": "TST",
+            "Estimate": 0.8321995987132277,
+            "Std. Err": 0.04652137183927061,
+            "z-value": 17.888543819613787,
+            "p-value": 0.0
+        },
+        {
+            "dest": "alcohol_bev",
+            "op": "~~",
+            "src": "alcohol_bev",
+            "Estimate": 0.5756761531075248,
+            "Std. Err": 0.03218127528435007,
+            "z-value": 17.888543819442447,
+            "p-value": 0.0
+        }
+    ]
+}
