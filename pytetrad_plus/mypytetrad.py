@@ -49,11 +49,13 @@ import pandas as pd
 import semopy
 import tqdm
 
-__version_info__ = ('0', '2', '7')
+__version_info__ = ('0', '2', '8')
 __version__ = '.'.join(__version_info__)
 
 version_history = \
 """
+0.2.8 - add intermediate results for get_hyper_parameters providing results of
+        each run
 0.2.7 - add get_hyper_parameters to calculate the hyper parameters to achieve a target 
         false positive rate for a specific dataset
 0.2.6 - set default verbose to False to stop the adjacentNodes messages
@@ -780,7 +782,7 @@ class MyTetradSearch(TetradSearchBaseClass):
                         knowledge: dict = {},
                         lag_flag: int = 0, # lag the data if 1
                         lag_stub: str = '_',
-                        verbose: bool = True
+                        verbose: int = 1
                         ) -> dict:
         """
         
@@ -805,7 +807,8 @@ class MyTetradSearch(TetradSearchBaseClass):
         knowledge : dict : knowledge to use
         lag_flag : int : if 1, add lagged columns to the dataframe
         lag_stub : str : string to append to the column names for the lagged variables
-        
+        verbose : int : verbosity level, default 1
+
         Returns:
         dict : dictionary of results
         
@@ -837,7 +840,7 @@ class MyTetradSearch(TetradSearchBaseClass):
                 penalty_discount = pd_value
                 combined_key = f"pd-{penalty_discount}_alpha-{alpha_value}"
                 # check if the penalty discount is already in the results
-                if verbose: print(f"Permutation with penalty discount {penalty_discount} and alpha {alpha_value}...")
+                if verbose >1: print(f"Permutation with penalty discount {penalty_discount} and alpha {alpha_value}...")
                 # create key for this penalty discount
                 permuted_results[combined_key] = {"data": []}
                 pass
@@ -877,7 +880,7 @@ class MyTetradSearch(TetradSearchBaseClass):
                         'fpr': fpr
                     }
                     permuted_results[combined_key]['data'].append(info)
-                print(f"\n pd{penalty_discount} alpha {alpha_value} with fpr {fpr} complete!")
+                    if verbose >2: print(f"\n pd:{penalty_discount} alpha:{alpha_value} with fpr {fpr} complete!")
                 
                 # calculate the avg fpr
                 avg_fpr = sum_fpr / n_permutations
@@ -886,9 +889,17 @@ class MyTetradSearch(TetradSearchBaseClass):
                 permuted_results[combined_key]['alpha'] = alpha_value
                 permuted_results[combined_key]['pd'] = pd_value
 
-                if verbose: print(f"Avg fpr for penalty discount {penalty_discount} and alpha {alpha_value} is {avg_fpr}")
+                if verbose>1: print(f"Avg fpr for penalty discount {penalty_discount} and alpha {alpha_value} is {avg_fpr}")
                 
+                # initialize the result dict
+                result = {
+                    'model': model,
+                    'calc_fpr': target_fpr,
+                    'n_permutations': n_permutations,
+                }
+
                 # check if avg_fpr is less than or equal to target_fpr
+                # means that we covered the range needed to calcuate the best value
                 if avg_fpr <= target_fpr:
                     #
                     # use linear interpolation to find the best value
@@ -918,13 +929,15 @@ class MyTetradSearch(TetradSearchBaseClass):
                         intercept = np.log10(last_fpr) - (slope * last_pd)
                         # calculate the best pd value
                         best_pd = (float(np.log10(target_fpr)) - intercept) / slope
-                        result = {
+                        result.update(
+                            {
                             'penaltyDiscount': float(best_pd),
                             'alphaValue': last_alpha,
-                            'calc_fpr': target_fpr,
-                            'n_permutations': n_permutations
-                        }
+                            'run_results': permuted_results
+                            }
+                        )
                         return result
+
                     elif len(pd_values) == 1:
                         # calculate the slope for calculating the best alpha value
                         slope = (np.log10(last_fpr) - np.log10(next_to_last_fpr)) / (last_alpha - next_to_last_alpha)
@@ -932,15 +945,16 @@ class MyTetradSearch(TetradSearchBaseClass):
                         intercept = np.log10(last_fpr) - (slope * last_alpha)
                         # calculate the best alpha value
                         best_alpha = (np.log10(target_fpr) - intercept) / slope
-                        result = {
+                        result.update(
+                            {
                             'penaltyDiscount': last_pd,
                             'alphaValue': best_alpha,
-                            'calc_fpr': target_fpr,
-                            'n_permutations': n_permutations,
                             'run_results': permuted_results
-                        }
+                            }
+                        )
                         return result
                     else:
+                        result = None
                         raise ValueError("Both pd_values and alpha_values cannot be lists.")
                     break
                 pass
@@ -977,17 +991,20 @@ if __name__ == "__main__":
     ts = MyTetradSearch()
 
     # load a dataframe for testing
-    df_file = "pytetrad_plus/boston_data.csv"
-    df = pd.read_csv(df_file)
+    df_file = "pytetrad_plus/boston_data_raw.csv"
+    df_raw = pd.read_csv(df_file)
     
-    if df.empty:
-        print(f"Failed to load the DataFrame from {df_file}. Please check the file.")
+    if df_raw.empty:
+        raise ValueError(f"Failed to load the DataFrame from {df_file}. Please check the file.")
     else:
+        # add the lagged columns to the DataFrame
+        df = ts.add_lag_columns(df_raw, lag_stub='_lag')
+        # standardize the data
+        df = ts.standardize_df_cols(df)
         # Load the DataFrame into the TetradSearch object
         ts.load_df_into_ts(df)
-        print("Data loaded successfully.")
 
-    # read the prior file for testing
+    # read the prior file
     prior_lines = ts.read_prior_file('pytetrad_plus/boston_prior.txt')
     # extract knowledge from the prior lines
     knowledge = ts.extract_knowledge(prior_lines)
@@ -999,10 +1016,8 @@ if __name__ == "__main__":
     searchResult = ts.run_model_search(df, model='gfci', 
                                             knowledge=knowledge, 
                                             score={'sem_bic': {'penalty_discount': 1.0}},
-                                            test={'fisher_z': {'alpha': .05}})
+                                            test={'fisher_z': {'alpha': .01}})
     
-    
-  
     
     lavaan_model = ts.edges_to_lavaan(searchResult['setEdges'])
     
@@ -1030,4 +1045,47 @@ if __name__ == "__main__":
     # write the result to a json file
     with open('pytetrad_plus/boston_result.json','w') as f:
         json.dump(result, f, indent=4)
-    pass  # assign the method for testing
+
+    # run the hyperparameter search
+    print("Running hyperparameter search...")
+    # create the df for the hyperparameter search
+    df = ts.standardize_df_cols(df_raw)
+    results = ts.get_hyper_parameters(
+                    df,
+                    alpha_values = [0.01],
+                    knowledge=knowledge,
+                    target_fpr= 0.005,
+                    lag_flag=True,
+                    lag_stub='_lag',
+                    verbose=2,
+
+                )
+    
+    # save the results to a file
+
+    file_out = f"pytetrad_plus/boston_hyperparameter_results.json"
+    with open(file_out, 'w') as f:
+        json.dump(results, f, indent=4)
+        pass  # assign the method for testing
+
+    # run the model search with the best hyperparameters
+
+    searchResult = ts.run_model_search(df, model='gfci', 
+                                            knowledge=knowledge, 
+                                            score={'sem_bic': {'penalty_discount': results['penaltyDiscount']}},
+                                            test={'fisher_z': {'alpha': results['alphaValue']}})
+    
+    
+    lavaan_model = ts.edges_to_lavaan(searchResult['setEdges'])
+    
+    # run semopy
+    sem_results = ts.run_semopy(lavaan_model, df)
+    
+    # plot into png
+    png_path = 'pytetrad_plus/boston_data_optimum_hp.png'
+    g = semopy.semplot(sem_results['model'], png_path,  plot_covs = True)
+
+    # get the estmates
+    estimates_sem = sem_results['estimates']
+    
+    pass

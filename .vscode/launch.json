@@ -17,7 +17,7 @@
             ]
         },
         {
-            "name": "mypytetrad.py init",
+            "name": "mypytetrad.py run",
             "type": "debugpy",
             "request": "launch",
             "program": "pytetrad_plus/mypytetrad.py",
