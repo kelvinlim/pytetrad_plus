@@ -1049,9 +1049,9 @@ if __name__ == "__main__":
     # run the hyperparameter search
     print("Running hyperparameter search...")
     # create the df for the hyperparameter search
-    df = ts.standardize_df_cols(df_raw)
+    df_raw_std = ts.standardize_df_cols(df_raw)
     results = ts.get_hyper_parameters(
-                    df,
+                    df_raw_std,
                     alpha_values = [0.01],
                     knowledge=knowledge,
                     target_fpr= 0.005,
@@ -1072,8 +1072,11 @@ if __name__ == "__main__":
 
     searchResult = ts.run_model_search(df, model='gfci', 
                                             knowledge=knowledge, 
-                                            score={'sem_bic': {'penalty_discount': results['penaltyDiscount']}},
-                                            test={'fisher_z': {'alpha': results['alphaValue']}})
+                                            #score={'sem_bic': {'penalty_discount': results['penaltyDiscount']}},
+                                            #test={'fisher_z': {'alpha': results['alphaValue']}}
+                                            score={'sem_bic': {'penalty_discount': 1.1}},
+                                            test={'fisher_z': {'alpha': .01}}
+                                            )
     
     
     lavaan_model = ts.edges_to_lavaan(searchResult['setEdges'])
