@@ -49,11 +49,12 @@ import pandas as pd
 import semopy
 import tqdm
 
-__version_info__ = ('0', '2', '8')
+__version_info__ = ('0', '2', '9')
 __version__ = '.'.join(__version_info__)
 
 version_history = \
 """
+0.2.9 - add option to run_stability_search save_file to save the results to a json file
 0.2.8 - add intermediate results for get_hyper_parameters providing results of
         each run
 0.2.7 - add get_hyper_parameters to calculate the hyper parameters to achieve a target 
@@ -278,7 +279,8 @@ class MyTetradSearch(TetradSearchBaseClass):
                             min_fraction: float= 0.75,
                             subsample_fraction: float = 0.9,
                             random_state: Optional[int] = None,
-                            lag_flag = True) -> list:
+                            lag_flag = True,
+                            save_file: Optional[str] = None) -> list:
         """
         Run a stability search on the DataFrame using the specified model.
         
@@ -305,6 +307,9 @@ class MyTetradSearch(TetradSearchBaseClass):
         # dictionary where key is the edge and value is the number of times it was found
         edge_counts = {}
         
+        # list to hold results of each run
+        run_results = []
+
         # check if in jupyter to select the progress bar code
         if self.in_jupyter():
             from tqdm.notebook import tqdm
@@ -337,6 +342,12 @@ class MyTetradSearch(TetradSearchBaseClass):
             for edge in edges:
                 edge_counts[edge] = edge_counts.get(edge, 0) + 1
 
+            info = {
+                'edges': edges,
+                'edge_counts': edge_counts,
+            }
+            # add the info to the runs list
+            run_results.append(info)
         print(f"\nSearch complete!")
         
         # check similarity of edges, sort alphabetically
@@ -351,7 +362,21 @@ class MyTetradSearch(TetradSearchBaseClass):
               
         selected_edges = self.select_edges(sorted_edge_counts, min_fraction=min_fraction)
 
-        return selected_edges, sorted_edge_counts
+        # combine results into a dictionary
+        results = {
+            'edge_counts': edge_counts, 
+            'sorted_edge_counts': sorted_edge_counts,
+            'selected_edges': selected_edges,
+            'run_results': run_results,
+        }
+
+        if save_file is not None:
+            # save the results to a json file
+            with open(save_file, 'w') as f:
+                json.dump(results, f)
+            print(f"Results saved to {save_file}")
+
+        return selected_edges, sorted_edge_counts, edge_counts, run_results
     
     def select_edges(self, edge_counts: dict, min_fraction: float) -> dict:
         """
