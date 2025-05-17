@@ -280,7 +280,7 @@ class MyTetradSearch(TetradSearchBaseClass):
                             subsample_fraction: float = 0.9,
                             random_state: Optional[int] = None,
                             lag_flag = True,
-                            save_file: Optional[str] = None) -> list:
+                            save_file: Optional[str] = None) -> tuple:
         """
         Run a stability search on the DataFrame using the specified model.
         
@@ -356,27 +356,30 @@ class MyTetradSearch(TetradSearchBaseClass):
         sorted_edge_keys = sorted(edge_counts.keys())
         
         sorted_edge_counts = {}
+        sorted_edge_counts_raw = {}
         # loop over the sorted keys and store the fractional count 
         for edge in sorted_edge_keys:
             sorted_edge_counts[edge] = edge_counts[edge]/runs
-              
+            sorted_edge_counts_raw[edge] = edge_counts[edge]
+
         selected_edges = self.select_edges(sorted_edge_counts, min_fraction=min_fraction)
 
         # combine results into a dictionary
         results = {
-            'edge_counts': edge_counts, 
-            'sorted_edge_counts': sorted_edge_counts,
             'selected_edges': selected_edges,
-            'run_results': run_results,
+            'sorted_edge_counts': sorted_edge_counts,
+            'sorted_edge_counts_raw': sorted_edge_counts_raw,
+            'edge_counts': edge_counts, 
+            #'run_results': run_results, # error is not JSON serializable
         }
 
         if save_file is not None:
             # save the results to a json file
             with open(save_file, 'w') as f:
-                json.dump(results, f)
+                json.dump(results, f, indent=4)
             print(f"Results saved to {save_file}")
 
-        return selected_edges, sorted_edge_counts, edge_counts, run_results
+        return selected_edges, sorted_edge_counts, sorted_edge_counts_raw, run_results
     
     def select_edges(self, edge_counts: dict, min_fraction: float) -> dict:
         """
