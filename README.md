@@ -7,12 +7,22 @@ Required packages
 2. pytetrad
 
 To install packages:
+
 ```
 # create virtual environment and activate the environment
 python -mvenv .venv
 source .venv/bin/activate # linux
 .venv\Scripts\Activate.ps1 # windows
 
+# To install the package
+pip install pytetrad_plus
+# Manually install the py-tetrad
+pip install git+https://github.com/cmu-phil/py-tetrad
+```
+
+If you have done a git clone, you can do the 
+package install by doing:
+```
 # use pip to install
 pip install -r requirements.txt
 ```

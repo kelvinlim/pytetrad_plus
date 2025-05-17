@@ -279,7 +279,7 @@ class MyTetradSearch(TetradSearchBaseClass):
                             min_fraction: float= 0.75,
                             subsample_fraction: float = 0.9,
                             random_state: Optional[int] = None,
-                            lag_flag = True,
+                            lag_flag = False,
                             save_file: Optional[str] = None) -> tuple:
         """
         Run a stability search on the DataFrame using the specified model.
