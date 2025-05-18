@@ -633,7 +633,8 @@ class MyTetradSearch(TetradSearchBaseClass):
                     combined_string = ''.join(sorted([nodeA, nodeB]))
                     pairs.add(combined_string)
                     pass
-        return edges, nodes, pairs   
+        
+        return list(edges), list(nodes), list(pairs)  
 
     def summarize_estimates(self, df):
         """
@@ -724,6 +725,11 @@ class MyTetradSearch(TetradSearchBaseClass):
         test = kwargs.get('test', None)
         depth = kwargs.get('depth', -1)
         verbose = kwargs.get('verbose', False)
+        max_degree = kwargs.get('max_degree', -1)
+        max_disc_path_length = kwargs.get('max_disc_path_length', -1)
+        complete_rule_set_used = kwargs.get('complete_rule_set_used', False)
+        guarantee_pag = kwargs.get('guarantee_pag', False)
+        
         
         # load the data into the TetradSearch object
         self.load_df_into_ts(df)
@@ -740,9 +746,9 @@ class MyTetradSearch(TetradSearchBaseClass):
                 alpha = test['fisher_z'].get('alpha',.01)
                 self.use_fisher_z(alpha=alpha)
             
-        # check if depth is not None
-        if depth != -1:
-            self.set_depth(depth)
+        # check if depth is not None - set in run_gfci
+        # if depth != -1:
+        #     self.set_depth(depth)
             
         if knowledge is not None:
             self.load_knowledge(knowledge)
@@ -753,22 +759,27 @@ class MyTetradSearch(TetradSearchBaseClass):
 
         ## Run the selected search
         if model == 'fges':
-            x = self.run_fges(verbose=verbose)
-        elif model == 'gfci':   
-            # set ther verbosity
-                
-            x = self.run_gfci(max_degree=1000,
-                              complete_rule_set_used=False,
-                              )
+            x = self.run_fges()
             
+        elif model == 'gfci':   
+                
+            x = self.run_gfci(
+                                depth=depth,
+                                max_degree=max_degree,
+                                max_disc_path_length=max_disc_path_length,
+                                complete_rule_set_used=complete_rule_set_used,        
+                                guarantee_pag=guarantee_pag,
+                                )
+
 
         soutput = self.get_string()
         setEdges, setNodes, setPairs = self.extract_edges(soutput)
         
-        result = {'setEdges': setEdges, 
-                  'setNodes': setNodes, 
-                  'setPairs': setPairs,
-                  'raw_output': soutput
+        result = {  'edges': list(setEdges),
+                    'setEdges': setEdges, 
+                    'setNodes': setNodes, 
+                    'setPairs': setPairs,
+                    'raw_output': soutput
                   } 
         
         return result

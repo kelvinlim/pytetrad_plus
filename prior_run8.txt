@@ -1,0 +1,10 @@
+/knowledge
+
+addtemporal
+1 Full_Education Full_Age Sex
+2 FPQ_Total UPPSP_NegativeUrgency UPPSP_LackofPerseverance UPPSP_LackofPremeditation UPPSP_SensationSeeking UPPSP_PositiveUrgency GAD7_Total PASS20_Total PCS_Total PHQ9_Total PROMIS_Anger_Total ASSIST_Alcohol_RiskScore PROMIS_FU_Alc FPQ_FU_Alc UPPS_FU_Alc PASS_FU_Alc PCS_FU_Alc GAD_FU_Alc PHQ_FU_Alc ReliefVAS_Alc NumPainSites BPI_PainLeast BPI_PainWorst BPI_PainAverage BPI_PainRightNow CANUE_Z_Total AlcExpectMean 
+3 Freq_SU_Pain_3 
+
+forbiddirect
+
+requiredirect
