@@ -49,11 +49,12 @@ import pandas as pd
 import semopy
 import tqdm
 
-__version_info__ = ('0', '2', '9')
+__version_info__ = ('0', '2', '10')
 __version__ = '.'.join(__version_info__)
 
 version_history = \
 """
+0.2.10 - add getTetradVersion to get the version of Tetrad
 0.2.9 - add option to run_stability_search save_file to save the results to a json file
 0.2.8 - add intermediate results for get_hyper_parameters providing results of
         each run
@@ -108,6 +109,16 @@ class MyTetradSearch(TetradSearchBaseClass):
         # Call the parent class's constructor
         # super().__init__(*args, **kwargs)
         super().__init__(dummy_df)
+        
+    def getTetradVersion(self):
+        """
+        Get the version of Tetrad
+        """
+        
+        from edu.cmu.tetrad.util import Version
+        
+        version = Version.currentViewableVersion().toString()
+        return version
 
     def read_csv(self, file_path: str) -> pd.DataFrame:
         """Read a CSV file and return a pandas DataFrame.
